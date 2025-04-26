@@ -1,5 +1,5 @@
 const { REST } = require('@discordjs/rest');
-const { Routes } = require('discord-api-types/v9');
+const { Routes } = require('discord-api-types/v10');
 const { token, clientId, guildId } = require('./config.json');
 const fs = require('fs');
 
@@ -13,7 +13,7 @@ for (const file of commandFiles) {
 	});
 }
 
-const rest = new REST({ version: '9' }).setToken(token);
+const rest = new REST({ version: '10' }).setToken(token);
 
 (async () => {
 	try {
