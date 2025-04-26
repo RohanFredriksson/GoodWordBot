@@ -49,15 +49,18 @@ client.on('messageCreate', async (message) => {
 
     if (message.author.bot) {return;}
     if (!message.content.toLowerCase().includes('word')) {return;}
+    if (message.content.toLowerCase().includes('word of the day is')) {return;}
+    if (message.content.toLowerCase().includes('is the word of the day')) {return;}
 
     const classifier = await ClassificationPipeline.getInstance();
     response = await classifier(message.content);
+    console.log(message.content, response);
+
     label = response[0]['label']
     score = response[0]['score']
 
-    if (label == 'neutral') {return;}
-    if (score < 0.75) {return;}
-    if (label == 'positive') {execute(message, 'good-word', []);}
+    if (label != 'positive' && score < 0.75) {return;}
+    execute(message, 'good-word', []);
 
 });
 
