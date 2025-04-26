@@ -1,5 +1,7 @@
-const fs = require('fs');
 const { Client, Collection, GatewayIntentBits } = require('discord.js');
+const fs = require('fs');
+
+const { ClassificationPipeline } = require('./classes/classification-pipeline');
 const { Interaction } = require('./classes/interaction.js');
 
 const { token, prefix, operators } = require('./config.json');
@@ -43,19 +45,21 @@ client.on('interactionCreate', async interaction => {
 
 });
 
-/*
-client.on('messageCreate', (message) => {
+client.on('messageCreate', async (message) => {
 
-    if(!message.content.startsWith(prefix) || message.author.bot) return;
+    if (message.author.bot) {return;}
+    if (!message.content.toLowerCase().includes('word')) {return;}
 
-    const args = message.content.slice(prefix.length).split(/\s+/);
-    const command = args.shift().toLowerCase();
-    //const user = User.load(message.author.id);
+    const classifier = await ClassificationPipeline.getInstance();
+    response = await classifier(message.content);
+    label = response[0]['label']
+    score = response[0]['score']
 
-    execute(message, command, args);
+    if (label == 'neutral') {return;}
+    if (score < 0.75) {return;}
+    if (label == 'positive') {execute(message, 'good-word', []);}
 
 });
-*/
 
 client.login(token);
 
