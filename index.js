@@ -60,8 +60,8 @@ client.on('messageCreate', async (message) => {
     score = response[0]['score']
 
     if (label != 'positive') {return;}
-    if (score < 0.75) {return;}
-    
+    if (score < 0.8) {return;}
+
     execute(message, 'good-word', []);
 
 });
