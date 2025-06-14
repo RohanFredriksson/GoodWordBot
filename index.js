@@ -51,6 +51,7 @@ client.on('messageCreate', async (message) => {
     if (!message.content.toLowerCase().includes('word')) {return;}
     if (message.content.toLowerCase().includes('word of the day is')) {return;}
     if (message.content.toLowerCase().includes('is the word of the day')) {return;}
+    if (message.content.toLowerCase().includes('word of the day:')) {return;}
 
     const classifier = await ClassificationPipeline.getInstance();
     response = await classifier(message.content);
