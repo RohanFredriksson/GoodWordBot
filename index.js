@@ -47,11 +47,14 @@ client.on('interactionCreate', async interaction => {
 
 client.on('messageCreate', async (message) => {
 
+    const lowered = message.content.toLowerCase();
+
     if (message.author.bot) {return;}
-    if (!message.content.toLowerCase().includes('word')) {return;}
-    if (message.content.toLowerCase().includes('word of the day is')) {return;}
-    if (message.content.toLowerCase().includes('is the word of the day')) {return;}
-    if (message.content.toLowerCase().includes('word of the day:')) {return;}
+    if (!lowered.includes('word')) {return;}
+    if (lowered.includes('word of the day:')) {return;}
+    if (lowered.includes('word of the day is')) {return;}
+    if (lowered.includes('is the word of the day')) {return;}
+    if (lowered.includes('good') && lowered.includes('bot')) {return;}
 
     const classifier = await ClassificationPipeline.getInstance();
     response = await classifier(message.content);
