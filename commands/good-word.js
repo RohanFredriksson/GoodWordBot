@@ -51,10 +51,10 @@ module.exports = {
 			"GOOD WORD... It brushed my soul like petals in passing. 🌸🌬️💗",
 			"GOOD WORD... Soft as starlight, sharp as morning frost. ❄️✨📖",
 			"GOOD WORD... A perfect note in the song of thought. 🎼📝🌠",
-			"GOOD WORD... crisp like cool shade on a hot thought. 🧊🌴💭",
-			"GOOD WORD... it just vibed into the conversation like it's always belonged. 🎧🛋️📞",
+			"GOOD WORD... Crisp like cool shade on a hot thought. 🧊🌴💭",
+			"GOOD WORD... It just vibed into the conversation like it's always belonged. 🎧🛋️📞",
 			"GOOD WORD... That's got flow, finesse, and a little jazzy soul. 🎷🌀🌃",
-			"GOOD WORD... you can almost hear it sipping coffee and reading poetry. ☕📖🕊️",
+			"GOOD WORD... You can almost hear it sipping coffee and reading poetry. ☕📖🕊️",
 			"GOOD WORD... That one just hummed its way into my brain and parked in peace. 🧘‍♂️🚗🌈",
 			"GOOD WORD... The ravens paused mid-flight to hear it whispered again. 🦅🌑📣",
 		]
